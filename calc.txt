@@ -1,0 +1,45 @@
+from tkinter import *
+top=Tk()
+top.geometry("250x250")
+top.title("CALUCLATOR")
+top.configure(background = "#306EFF") # this is only for background colur(#306EFF is HTMLcolurcode of  blue ribbon colur)
+exp =" "
+def click(val):
+    global exp
+    exp = exp+str(val)
+    eqn.set(exp)
+def clear():
+    global exp
+    exp = ""
+    eqn.set("exp")
+def click_equal():
+    try:
+        global exp
+        result= str(eval(exp))
+        eqn.set(result)
+        
+    except:
+        eqn.set(" syntax error ")
+        exp = ""
+eqn=StringVar()
+expression_entry = Entry(top, text=eqn,width=11,bg="blue",fg='black',font=("default",21)).place(x=0,y=3)
+b0=Button(top,text="0",bg="yellow",fg="blue",height=2,width=4,command=lambda:click(0)).place(x=0,y=41)
+b1=Button(top,text="1",bg="yellow",fg="blue",height=2,width=4,command=lambda:click(1)).place(x=34,y=41)
+b2=Button(top,text="2",bg="yellow",fg="blue",height=2,width=4,command=lambda:click(2)).place(x=68,y=41)
+b3=Button(top,text="3",bg="yellow",fg="blue",height=2,width=4,command=lambda:click(3)).place(x=102,y=41)
+b4=Button(top,text="4",bg="yellow",fg="blue",height=2,width=4,command=lambda:click(4)).place(x=136,y=41)
+b5=Button(top,text="5",bg="yellow",fg="blue",height=2,width=4,command=lambda:click(5)).place(x=0,y=82)
+b6=Button(top,text="6",bg="yellow",fg="blue",height=2,width=4,command=lambda:click(6)).place(x=34,y=82)
+b7=Button(top,text="7",bg="yellow",fg="blue",height=2,width=4,command=lambda:click(7)).place(x=68,y=82)
+b8=Button(top,text="8",bg="yellow",fg="blue",height=2,width=4,command=lambda:click(8)).place(x=102,y=82)
+b9=Button(top,text="9",bg="yellow",fg="blue",height=2,width=4,command=lambda:click(9)).place(x=136,y=82)
+b_multi=Button(top,text="X",bg="yellow",fg="blue",height=2,width=4,command=lambda:click("*")).place(x=0,y=123)
+b_plus=Button(top,text="+",bg="yellow",fg="blue",height=2,width=4,command=lambda:click("+")).place(x=34,y=123)
+b_sub=Button(top,text="-",bg="yellow",fg="blue",height=2,width=4,command=lambda:click("-")).place(x=68,y=123)
+b_div=Button(top,text="/",bg="yellow",fg="blue",height=2,width=4,command=lambda:click("/")).place(x=102,y=123)
+b_dot=Button(top,text=".",bg="yellow",fg="blue",height=2,width=4,command=lambda:click(".")).place(x=136,y=123)
+b_mod=Button(top,text="%",bg="yellow",fg="blue",height=2,width=4,command=lambda:click("%")).place(x=0,y=164)
+b_clear=Button(top,text="C",bg="yellow",fg="blue",height=2,width=4,command=clear).place(x=34,y=164)
+b_equal=Button(top,text="=",bg="orange",fg="black",height=2,width=14,command=click_equal).place(x=68,y=164)
+lb1=Label(text="DEVELOPED BY SATHVIK",bg="red",fg='blue').place(x=0,y=240)
+top.mainloop()
